@@ -1,0 +1,478 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#content > p{
+  display: block;
+  padding: 2% 0%;
+  margin: 2% 5%;
+  text-align: center;
+  background-color: #f6f6f6;
+  font-style: italic;
+  font-size: 19px;
+  font-weight: bold;
+}
+.listImages{
+  padding: 2% 5%;
+}
+.itemProduct{
+  margin-left: 0;
+  margin-bottom: 3%;
+}
+/*CSS productdetail*/
+.title{
+  padding: 2% 5% 0;
+}
+.title ul{
+  overflow: hidden;
+  padding-bottom: 1%;
+  border-bottom: 1px inset #c3cbd5;
+}
+.title ul li{
+  float: left;
+}
+.title ul li:first-child{
+  list-style: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+.title ul li:first-child a{
+  text-decoration: none;
+  color: #c74742;
+}
+.title ul li:nth-child(2){
+  margin-left: 40px;
+  padding-top: 2px;
+  list-style-image: url('../images/arrows.png');
+}
+.title ul li:nth-child(2) a{
+  text-decoration: none;
+  color: #000;
+}
+.productDetail{
+  padding: 0 5% 2% 5%;
+  overflow: hidden;
+  width: 100%;
+}
+.productdetailImage{
+  float:left;
+  width: 40%;
+  height: auto;
+}
+.productdetailImage img{
+  width: 100%;
+  height: 100%;
+}
+.productdetailContent{
+  float: left;
+  width: 60%;
+  height: auto;
+  padding-left: 5%;
+}
+.productdetailContent ul{
+  list-style-type: none;
+  margin-top: 10%;
+}
+.productdetailContent ul li{
+  margin-bottom: 5%;
+}
+.productdetailContent ul li:first-child{
+  color: #c74742;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: justify;
+  margin-bottom: 5%;
+}
+.productdetailContent ul li:nth-child(2){
+  color: red;
+  font-weight: bold;
+}
+.productdetailContent ul li:nth-child(6){
+  color: green;
+  font-weight: bold;
+}
+.productdetailContent input{
+  width: 70px;
+  height: 46px;
+  padding: 5px;
+  font-size: 17px;
+}
+.productdetailContent form{
+  display: inline-block;
+}
+.productdetailContent a{
+  text-decoration: none;
+  display: inline-block;
+  padding: 13px;
+  color:  #fff;
+  background-color: #c74742;
+  border: 1px solid #c74742;
+}
+.titleDescription {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-left: 5%;
+  font-size: 16px;
+  background-color: #5FB435;
+  color: #fff;
+}
+.descriptionContent{
+  padding: 2% 5%;
+  text-align: justify;
+  line-height: 1.5;
+}
+.descriptionContent img{
+  width: 300px;
+  height: auto;
+  display: block;
+  margin: 2% auto;
+}
+.descriptionImage {
+  overflow: hidden;
+  padding: 2% 5%;
+}
+/*CSS sale*/
+.itemSale{
+  float:right;
+  font-size: 13px;
+  padding: 3%;
+  background-color: #c74742;
+  color: #fff
+}
+/*CSS introduction*/
+.introduction{
+  margin-top: 4%;
+}
+.introductionContent{
+  padding: 2% 5%;
+}
+.introductionContent ul{
+  list-style-type: none;
+}
+.introductionContent ul li{
+  padding: 10px 20px;
+}
+/*CSS reviewproduct*/
+.reviewProduct{
+  overflow: hidden;
+  padding: 2% 5%;
+  width: 100%;
+}
+.reviewProductImage{
+  float: left;
+  width: 30%;
+  height: 250px;
+  display: inline-block;
+  border: 1px solid #f3f4f6;
+}
+.reviewProductImage img{
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: 250px;
+}
+.reviewProductContent{
+  float: left;
+  width: 70%;
+  height: 230px;
+  padding-left: 2%;
+  position: relative;
+}
+.reviewProductContent h3{
+  font-style: 16px;
+  text-align: justify;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+}
+.reviewProductContent p{
+  text-align: justify;
+  line-height: 1.5;
+  height: 80px;
+}
+.detail{
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #c74742;
+}
+.detail a{
+  text-decoration: none;
+  color: #fff;
+  display: block;
+}
+/*CSS shopping cart*/
+.shoppingcartTable{
+  padding: 2% 5%;
+}
+.shoppingcartTable table{
+  border-spacing: 0;
+  border: 1px solid #c74742;
+  border-bottom: 0;
+}
+.shoppingcartTable tr:first-child{
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+  background-color: #c74742;
+}
+.shoppingcartTable tr:last-child td:nth-child(2){
+  text-align: right;
+  padding-right: 11%;
+  font-weight: bold;
+}
+.shoppingcartTable tr:last-child td:nth-child(1){
+  text-align: center;
+  font-weight: bold;
+}
+.shoppingcartTable td{
+  padding: 8px;
+  width: 20%;
+  border-right: 1px solid #c74742;
+  border-bottom: 1px solid #c74742;
+}
+.shoppingcartTable table td > img{
+  width: 80%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+.shoppingcartTable td:first-child{
+  width: 15%;
+}
+.shoppingcartTable td:nth-child(2){
+  width: 35%;
+}
+.shoppingcartTable td:nth-child(3){
+  width: 13%;
+}
+.shoppingcartTable td:nth-child(4){
+  width: 15%;
+  text-align: center;
+}
+.shoppingcartTable td:nth-child(5){
+  width: 20%;
+  text-align: center;
+}
+.shoppingcartTable td:last-child{
+  border-right: 0;
+}
+.shoppingcartTable input{
+  border: none;
+  width: 60px;
+  height: 50px;
+  display: block;
+  margin: auto;
+  font-size: 15px;
+  outline: 0;
+}
+.shoppingcartButton{
+  padding: 2% 5%;
+  display: block;
+}
+.button{
+  padding: 10px 20px;
+  background-color: #35797e;
+  margin-right: 2%;
+  float: left;
+  border-radius: 5px;
+  box-shadow: 2px 1px 4px rgba(13, 87, 93, 0.59);
+}
+.button a{
+  text-decoration: none;
+  color: #fff;
+  display: inline-block;
+}
+/*CSS register*/
+.register{
+  padding: 2% 5%;
+  overflow: hidden;
+}
+.registerContent{
+  float: left;
+  width: 60%;
+  height: auto;
+  display: block;
+  border-right: 1px solid #c3cbd5;
+}
+.registerContent h3{
+  font-size: 28px;
+}
+.registerContent table{
+  border-spacing: 15px;
+}
+.registerContent input[type="text"], input[type="password"]{
+  height: 40px;
+  width: 350px;
+  outline: 0;
+}
+.registerContent select{
+  height: 30px;
+  outline: 0;
+}
+.registerContent input[type="reset"]{
+  margin-right: 5px;
+}
+.registerContent input[type="reset"], input[type="submit"]{
+  cursor: pointer;
+  width: 100px;
+  height: 35px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 1px 4px rgba(13, 87, 93, 0.59);
+  background-color: #35797e;
+  color: #fff;
+  font-size: 15px;
+}
+.notification{
+  color: red;
+  display: block;
+  text-align: center;
+}
+.bntRegister{
+  width: 45%;
+  margin: 10px auto;
+}
+.point{
+  color: red;
+}
+.favorable{
+  float: left;
+  width: 40%;
+  height: auto;
+  padding-left: 2%;
+  padding-top: 2%;
+}
+.titleFavorable{
+  color: #c74742;
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 10px;
+}
+.favorable ul{
+  padding-left: 5%;
+}
+.favorable ul li{
+  margin: 10px 20px;
+  list-style-image: url("../images/arrows.png");
+}
+.btnlogin{
+  width: 50%;
+}
+/*CSS content detail*/
+.news{
+  padding: 2% 5%;
+}
+.newsImage{
+  width: 40%;
+  height: auto;
+  float:left;
+  margin-right: 5%;
+  margin-bottom: 20px;
+}
+.newsImage img{
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: auto;
+}
+.newsContent{
+  display: block;
+  text-align: justify;
+  line-height: 2;
+}
+.newsContent h3{
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+@media only screen and (max-width: 950px){
+  .favorable{
+    float: none;
+    width: 100%;
+    height: auto;
+    padding: 0;
+  }
+  .registerContent{
+    float: none;
+    width: 100%;
+    height: auto;
+    border-right: none;
+  }
+}
+@media only screen and (max-width: 850px){
+  #content > p{
+    margin: 2% 2%;
+  }
+  .shoppingcartTable{
+    padding: 2% 2%;
+  }
+  .shoppingcartButton{
+    padding: 2% 2%;
+  }
+  .button{
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 600px){
+  .registerContent input[type="text"], input[type="password"]{
+    width: 200px;
+    height: 35px;
+  }
+  .btnlogin{
+    width: 100%;
+  }
+  .registerContent select{
+    height: 30px;
+    font-size: 10px;
+  }
+  .bntRegister{
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 500px){
+  .shoppingcartTable td{
+    padding: 4px;
+    font-size: 14px;
+    width: auto;
+  }
+  .button{
+    float: none;
+    margin-bottom: 20px;
+  }
+  .productdetailContent ul li:first-child{
+    font-size: 15px;
+  }
+  .productdetailContent ul li{
+    font-size: 12px;
+  }
+  .productdetailContent input{
+    width: 50px;
+    height: 30px;
+    font-size: 14px;
+  }
+  .productdetailContent a{
+    padding: 7.5px;
+  }
+  .descriptionContent p{
+    font-size: 15px;
+  }
+  .descriptionContent img{
+    width: 150px;
+    height: auto;
+  }
+  .title ul li:first-child a{
+    font-size: 17px;
+  }
+  .title ul li:nth-child(2) a{
+    font-size: 14px;
+  }
+}
+#price{
+  text-decoration: line-through;
+  font-size: 14px;
+  font-weight: 400;
+}

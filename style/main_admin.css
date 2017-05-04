@@ -1,0 +1,405 @@
+*{
+	margin: 0;
+	padding-top: 0;
+}
+body{
+	font-family: "Segoe UI",Arial,sans-serif;
+	font-size: 100%;
+	width: 100%;
+}
+#container{
+	position: relative;
+}
+/*CSS header.php*/
+#header{
+	width: 1349px;
+	height: 52px;
+}
+#headerL{
+	float: left;
+	width:300px;
+	height: 52px;
+	background-color: #264d73;
+}
+#headerL h3{
+	text-align: center;
+	padding-top: 13px;
+	color: #ffffff;
+}
+#headerL a{
+	text-decoration: none;
+	color: #fff;
+	display: block;
+}
+#headerR{
+	float: left;
+	background-color: #336699;
+	width: 1049px;
+	height: 52px;
+	position: absolute;
+	left: 300px;
+}
+#headerR ul{
+	float: right;
+	margin-top: 15px;
+	margin-right: 20px;
+}
+#headerR ul li{
+	list-style: none;
+	float: left;
+
+}
+#headerR ul li a{
+	text-decoration: none;
+	margin-left: 20px;
+	color: #ffffff;
+}
+#headerR ul li a:hover{
+	color: red;
+}
+/*CSS sidebar.php*/
+#sidebar{
+	clear: both;
+	float: left;
+	border-right: 2px solid #000;
+	background-color: #132639;
+	width: 300px;
+	min-height: 650px;
+}
+#Admin{
+	height: 60px;
+}
+#hinh_ad{
+	float: left;
+	padding-left: 20px;
+	margin-top: 5px;
+}
+#hinh_ad img{
+	border: 1px solid #000;
+	border-radius: 50px 50px 50px 50px;
+}
+#name_ad{
+	float: left;
+	padding-left: 20px;
+	padding-top: 14px;
+}
+#name_ad p{
+	font-size: 120%;
+	color: #ffffff;
+}
+#search{
+	border: 1px solid #132639;
+	border-radius: 5px 5px 5px 5px;
+	width: 280px;
+	height: 40px;
+	background-color: #ffffff;
+	margin:20px 10px;
+}
+#searchL input{
+	float: left;
+	width: 220px;
+	height: 30px;
+	margin-top: 4px;
+	margin-left: 6px;
+	border: none;
+}
+#searchR{
+	float: right;
+}
+#searchR img{
+	margin-top: 5px;
+	margin-right: 10px;
+}
+.manages ul{
+	margin-left: 0px;
+	padding-left: 0px;
+}
+.manages ul li{
+	padding-left: 30px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	list-style: none;
+}
+.manages ul li:hover{
+	border: 1px solid #6699cc;
+	background-color: #6699cc;
+}
+.manages ul li a{
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 110%;
+}
+.manages ul li a:hover{
+	color: #000;
+}
+/*CSS admin.php*/
+#content{
+	float: left;
+	width: 1049px;
+	min-height: 650px;
+	background-color: #F2F2F2;
+	position: absolute;
+	left: 300px;
+	top: 52px;
+}
+#content h1{
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+#content ul{
+	width: 1044px;
+	height: 500px;
+	padding-left: 0px;
+
+}
+#content ul li{
+	float: left;
+	width: 200px;
+	height: 150px;
+	list-style: none;
+	border: 1px solid #bfbfbf;
+	border-radius: 5px 5px 5px 5px;
+	box-shadow: 0px 0px 2px 2px #bfbfbf;
+	margin-left: 40px;
+	margin-right: 10px;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	background-color: #d9d9d9;
+}
+#content ul li a{
+	text-decoration: none;
+	width: 300px;
+}
+#content ul li a img{
+	margin-left: 65px;
+	margin-top:20px;
+}
+#content p{
+	display: inline-block;
+	margin-top: 20px;
+	font-size: 110%;
+	float:left;
+	padding: 5px 20px;
+}
+/*CSS ql_users.php*/
+.list table{
+	width: 800px;
+	margin: auto;
+}
+.list table td{
+	padding-top: 8px;
+}
+.list a{
+	text-decoration: none;
+	color: blue;
+}
+.list_img{
+	width: 30px;
+}
+.hoten{
+	width: 200px;
+}
+.title_list {
+	font-weight: bold;
+	width: 110px;
+	text-align: center;
+}
+.stt_list{
+	text-align: center;
+}
+/*CSS account.php*/
+.account table{
+	width: 450px;
+	position: absolute;
+	left: 500px;
+	top: 80px;
+}
+.account a{
+	text-decoration: none;
+}
+.account tr{
+	height: 30px;
+}
+.title_account{
+	font-weight: bold;
+	width: 130px;
+}
+.button_account{
+	width: 250px;
+	height: 40px;
+	margin: auto;
+	margin-top:50px;
+	padding-right: 70px;
+}
+.button_account a{
+	padding: 5px;
+	margin-right: 10px;
+	text-decoration: none;
+	border: 1px solid #336699;;
+	border-radius: 5px 5px 5px 5px;
+	box-shadow: 1px 1px 1px 1px #bfbfbf;
+	color: #fff;
+	background-color: #336699;
+}
+.hinh_dh{
+	margin-left: 100px;
+}
+/*CSS account_user.php*/
+.button_account_user{
+	width: 250px;
+	height: 40px;
+	margin: auto;
+	padding-left: 90px;
+	padding-top: 20px;
+	color: #fff;
+	background-color: #336699;
+}
+.button_account_user a{
+	padding: 5px;
+	text-decoration: none;
+	border: 1px solid #336699;
+	border-radius: 5px 5px 5px 5px;
+	box-shadow: 1px 1px 1px 1px #bfbfbf;
+
+}
+/*CSS cap_nhat.php*/
+.account input{
+	width: 250px;
+	height: 25px;
+}
+.button_cap_nhat{
+	padding-top: 20px;
+	padding-left: 110px;
+}
+.button_cap_nhat input[type=submit], input[type=reset]{
+	width: 70px;
+	margin-right: 10px;
+}
+/*CSS ql_thuonghieu.php*/
+.new_img{
+	position: absolute;
+	top: 10px;
+	left: 860px;
+	text-decoration: none;
+	width: 50px;
+	height: 50px;
+}
+.table_thuonghieu td{
+	padding-top: 8px;
+}
+.table_thuonghieu table{
+	margin: auto;
+}
+.title_thuonghieu{
+	font-weight: bold;
+}
+.title_thuonghieu td{
+	text-align: center;
+}
+.trang_thai{
+	text-align: center;
+	width: 100px;
+}
+/*CSS ql_thuonghieu_add.php*/
+.table_thuonghieu input{
+	width: 250px;
+	height: 30px;
+	margin-right: 20px;
+}
+.button_thuonghieu{
+	padding-left: 160px;
+}
+.button_thuonghieu input[type=submit], input[type=reset]{
+	width: 60px;
+	margin-right: 10px;
+}
+/*CSS ql_sanpham.php*/
+.number{
+	text-align: right;
+	padding-right: 16px;
+}
+.table_sp table{
+	margin-left: 20px;
+	margin-right: 20px;
+}
+.table_sp tr td{
+	padding-top: 8px;
+}
+.name_sp{
+	width: 300px;
+}
+.ma_sp{
+	width: 60px;
+}
+/*CSS ql_sanpham_add.php*/
+.button_sp{
+	padding-top: 20px;
+	padding-left: 350px;
+}
+.button_sp input[type=submit], input[type=reset]{
+	width: 60px;
+	margin-right: 10px;
+	margin-left: 50px;
+}
+.table_thuonghieu select{
+	width: 	254px;
+	height: 34px;
+}
+/*CSS ql_sanpham_view.php*/
+.table_viewsp{
+	width: 800px;
+	margin:auto;
+}
+.table_viewsp td{
+	text-align: justify;
+}
+.title_view{
+	width: 150px;
+	font-weight: bold;
+}
+/*CSS ql_dongsp.php*/
+.table_dongsp tr td{
+	padding-top: 8px;
+}
+.table_dongsp table{
+	margin: auto;
+}
+/*CSS ql_donhang.php*/
+.table_hd table{
+	margin: auto;
+}
+.table_hd tr td{
+	padding-top: 8px;
+}
+/*CSS ql_donhang_view.php*/
+.info_kh table{
+	margin: auto;
+}
+.info_kh table td{
+	padding-right: 10px;
+	padding-bottom: 20px;
+	padding-left: 10px;
+}
+.chitiet_donhang table{
+	margin: auto;
+	margin-top: 40px;
+	width: 900px;
+	min-height: 150px;
+}
+.total{
+	text-align: right;
+	font-weight: bold;
+	padding-right: 15px;
+}
+.total_text{
+	text-align: center;
+	font-weight: bold;
+}
+/*CSS ql_baiviet.php*/
+.tenbv{
+	width: 350px;
+}
+#sale{
+	color: red;
+}
