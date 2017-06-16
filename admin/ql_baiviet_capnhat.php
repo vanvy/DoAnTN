@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "../models/connect.php";
 $id_baiviet = $_REQUEST["id_baiviet"];
 if(isset($_POST["save"])){
@@ -15,12 +16,27 @@ if(isset($_POST["save"])){
     move_uploaded_file($_FILES["images"]["tmp_name"], $uploaddir.$uploadfile);
     $hinh = "../images/uploaded/".$date."_".basename($hinh);
   }
-  $query="UPDATE `baiviet` SET `id_loai`='$id_loai',`tieude`='$tieude',`nd_chinh`='$nd_chinh',
-  `noidung`='$noidung',`hinh_anh`='$hinh',`trangthai`='$trangthai' WHERE id_baiviet='$id_baiviet'";
-	$result=mysqli_query($con,$query) or die ("LOI CAP NHAT: ".mysqli_error($con));
-	if($result){
-		header("Location: ql_baiviet.php");
+  $check=true;
+	if(strlen($tieude)==0 || strlen($noidung)==0 || strlen($nd_chinh)==0) {
+		$msg="Bạn chưa nhập đầy đủ thông tin";
+		$check = false;
 	}
+	if($check){
+		if($hinh != "") {
+			$query = "UPDATE `baiviet` SET `id_loai`='$id_loai',`tieude`='$tieude',`nd_chinh`='$nd_chinh',
+  					`noidung`='$noidung',`hinh_anh`='$hinh',`trangthai`='$trangthai' 
+  					WHERE id_baiviet='$id_baiviet'";
+		} else {
+			$query="UPDATE `baiviet` SET `id_loai`='$id_loai',`tieude`='$tieude',`nd_chinh`='$nd_chinh',
+  					`noidung`='$noidung',`trangthai`='$trangthai' 
+  					WHERE id_baiviet='$id_baiviet'";
+		}
+		$result=mysqli_query($con,$query) or die ("LOI CAP NHAT: ".mysqli_error($con));
+		if($result){
+			header("Location: ql_baiviet.php");
+		}
+  	}
+}
 }
 ?>
 <!doctype html>

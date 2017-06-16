@@ -14,7 +14,7 @@ if(isset($_POST["btnsubmit"])){
 	$soluong=$_POST['soluong'];
 	$date = date('Y-m-d-h-i-s');
 	$hinh = $_FILES["images"]["name"];
-	$sale="";
+	$sale=$_POST["sale"];
 	if($hinh != ""){
 		$uploaddir = "../images/uploaded/";
 		$uploadfile = $date."_".basename($hinh);
@@ -41,7 +41,7 @@ if(isset($_POST["btnsubmit"])){
 <head>
 	<title>Thêm mới sản phẩm</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="../style/main_admin1.css">
+	<link rel="stylesheet" href="../style/main_admin.css">
 	<link rel="shortcut icon" type="image/png" href="../images/shape-1.png">
 </head>
 <body>
@@ -123,6 +123,10 @@ if(isset($_POST["btnsubmit"])){
 						<td class="title_thuonghieu">Hình ảnh</td>
 						<td><input type="file" name="images"></td>
 					</tr>
+					<tr>
+            <td class="title_thuonghieu"><span id="sale">Nhập % sale: </span></td>
+            <td><input type="number" min="0" max="100" name="sale" value="0" />
+          </tr>
 					<tr>
 						<td colspan="4" class="button_sp">
 							<input type="submit" name="btnsubmit" value="Lưu">

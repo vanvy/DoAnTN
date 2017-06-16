@@ -45,9 +45,9 @@
           Thanh toán
         </div>
         <hr>
-        <div class="introductionContent">
+        <div class="introductionContent clearfix">
             <div class="registerContent">
-              <h3>Đăng ký</h3>
+              <h3>Thông tin khách hàng</h3>
               <form class="" action="pay-process.php" method="post">
                   <table>
                   <tr>
@@ -90,7 +90,7 @@
               </form>
             </div>
             <div class="favorable">
-              <span class="titleFavorable">Thông tin đặt hàng</span>
+              <span class="titleFavorable"><h3>Thông tin đặt hàng</h3></span>
 
                   <table border="1" cellspacing="0">
                       <tr>
@@ -98,6 +98,7 @@
                           <td>Tên sản phẩm</td>
                           <td>Số lượng</td>
                           <td>Đơn giá</td>
+                          <td>Sale (%)</td>
                           <td>Thành tiền</td>
                       </tr>
                       <?php
@@ -108,25 +109,33 @@
                         }
                         $str = implode(",", $sp);
                         $query = "SELECT * FROM sanpham WHERE id_sp IN ($str)";
-                        $result = mysqli_query($con, $query) or die('ERROR SELECT SP IN 109/pay.php');
+                        $result = mysqli_query($con, $query) or die('ERROR SELECT SP IN 111/pay.php');
                         while($rows = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                             $dem++;
+                            $thanhtien = 0;
                             ?>
                             <tr>
                                 <td><?php echo $dem; ?></td>
                                 <td><?php echo $rows['ten_sp'];?></td>
                                 <td><?php echo $_SESSION['cart'][$rows['id_sp']];?></td>
                                 <td><?php echo number_format($rows['gia_sp']);?></td>
-                                <td><?php echo number_format($_SESSION['cart'][$rows['id_sp']]*$rows['gia_sp']);?></td>
+                                <td><?php echo $rows['sale'];?></td>
+                                <td>
+                                    <?php
+                                    $thanhtien = $_SESSION['cart'][$rows['id_sp']]*
+                                                ($rows['gia_sp'] - $rows['gia_sp']*$rows['sale']/100); 
+                                    echo number_format($thanhtien);
+                                    ?>
+                                </td>
                             </tr>
                             <?php
-                            $total += $_SESSION['cart'][$rows['id_sp']] * $rows['gia_sp'];
+                            $total += $thanhtien;
                         }
                       ?>
 
-                      <tr>
-                          <td colspan="3">Tổng cộng</td>
-                          <td colspan="2"><?php echo number_format($total);?></td>
+                      <tr class="sum">
+                          <td colspan="4">Tổng cộng</td>
+                          <td colspan="3"><?php echo number_format($total);?></td>
                       </tr>
                   </table>
             </div>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "../models/connect.php";
 	$id_sp=$_REQUEST['id_sp'];
 if(isset($_POST["submit"])){
@@ -13,7 +14,6 @@ if(isset($_POST["submit"])){
 	$mota_chitiet=$_POST["mota_chitiet"];
 	$trangthai=$_POST["trangthai"];
 	$soluong=$_POST["soluong"];
-	$sale="";
 	$date = date('Y-m-d-h-i-s');
 	$hinh = $_FILES["images"]["name"];
 	if($hinh != ""){
@@ -28,10 +28,17 @@ if(isset($_POST["submit"])){
 		$check = false;
 	}
 	if($check){
-		$query = "UPDATE `sanpham` SET `id_dsp`='$id_dsp',`id_th`='$id_th',`id_loaisp`='$id_loaisp',`ma_sp`='$ma_sp',
+		if($hinh != "") {
+			$query = "UPDATE `sanpham` SET `id_dsp`='$id_dsp',`id_th`='$id_th',`id_loaisp`='$id_loaisp',`ma_sp`='$ma_sp',
 				`ten_sp`='$ten_sp',`gia_sp`='$dgia',`soluong`='$soluong',`dung_luong`='$dung_luong',
 				`xuat_xu`='$xuat_xu',`mota_chitiet`='$mota_chitiet',`hinh_anh`='$hinh',
 				`trangthai`='$trangthai' WHERE id_sp='$id_sp'";
+		} else {
+			$query = "UPDATE `sanpham` SET `id_dsp`='$id_dsp',`id_th`='$id_th',`id_loaisp`='$id_loaisp',`ma_sp`='$ma_sp',
+				`ten_sp`='$ten_sp',`gia_sp`='$dgia',`soluong`='$soluong',`dung_luong`='$dung_luong',
+				`xuat_xu`='$xuat_xu',`mota_chitiet`='$mota_chitiet',
+				`trangthai`='$trangthai' WHERE id_sp='$id_sp'";
+		}
 		$result = mysqli_query($con,$query) or die ("LOI TRUY VAN: ".mysqli_error($con));
 		if($result){
 			header("Location: ql_sanpham.php");

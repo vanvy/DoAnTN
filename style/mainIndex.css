@@ -34,7 +34,7 @@ body{
   77%{margin-left: -870px;}
   80%{margin-left: -1160px;}
   97%{margin-left: -1160px;}
-	100%{margin-left: 0px;}
+  100%{margin-left: 0px;}
 }
 
 @-moz-keyframes slide{
@@ -171,7 +171,7 @@ body{
   display: inline-block;
 }
 #search input{
-  width: 80%;
+  width: 86%;
   height: 40px;
   float: left;
   border: 1px solid #fff;
@@ -199,6 +199,10 @@ body{
   list-style: none;
   overflow: hidden;
   margin-top: 6%;
+}
+#account ul li a:hover{
+  font-size: 15px;
+  color: #EAF755;
 }
 #account ul li{
   float: left;
@@ -422,7 +426,7 @@ body{
   display: block;
   float: left;
   border: 1px solid #f3f4f6;
-  margin: 20px 30px;
+  margin: 20px 34px;
 }
 .itemInformation img{
   width: 200px;
@@ -489,7 +493,7 @@ body{
 .productContent{
   overflow: hidden;
   padding: 2% 5% 0;
-  max-height: 950px;
+  max-height: 990px;
   width: 100%;
 }
 .itemProduct{
@@ -510,9 +514,6 @@ body{
   margin: auto;
   width: 100%;
   height: 100%;
-}
-.catagory{
-  margin-right: 5%;
 }
 .informationProduct{
   overflow: hidden;
@@ -558,6 +559,7 @@ hr{
   padding: 2% 5%;
   color: #000;
   border: none;
+  text-align: center;
 }
 @media only screen and (max-width: 1000px){
   #top-header-right{
@@ -611,7 +613,7 @@ hr{
     77%{margin-left: -840px;}
     80%{margin-left: -1120px;}
     97%{margin-left: -1120px;}
-  	100%{margin-left: 0px;}
+    100%{margin-left: 0px;}
   }
 
   @-moz-keyframes slide{
@@ -796,7 +798,7 @@ hr{
     77%{margin-left: -870px;}
     80%{margin-left: -1160px;}
     97%{margin-left: -1160px;}
-  	100%{margin-left: 0px;}
+    100%{margin-left: 0px;}
   }
 
   @-moz-keyframes slide{
@@ -876,7 +878,7 @@ hr{
     77%{margin-left: -1110px;}
     80%{margin-left: -1480px;}
     97%{margin-left: -1480px;}
-  	100%{margin-left: 0px;}
+    100%{margin-left: 0px;}
   }
 
   @-moz-keyframes slide{

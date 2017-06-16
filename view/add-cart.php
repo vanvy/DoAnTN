@@ -31,6 +31,7 @@
     // Cap nhat lai gia tri cua gio hang
     $_SESSION['cart'][$id_sp] = $quatity;
     // Chuyen sang trang shoppingcart.php
-    header('Location: shoppingcart.php');
-    exit;
+     header('Location: shoppingcart.php');
+     exit;
+    //var_dump($_SESSION['cart']);
 ?>

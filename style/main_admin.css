@@ -176,11 +176,10 @@ body{
 	margin-top:20px;
 }
 #content p{
-	display: inline-block;
+	display: block;
 	margin-top: 20px;
 	font-size: 110%;
-	float:left;
-	padding: 5px 20px;
+	text-align: center;
 }
 /*CSS ql_users.php*/
 .list table{
@@ -209,6 +208,11 @@ body{
 	text-align: center;
 }
 /*CSS account.php*/
+.changePass table{
+	width: 450px;
+	margin: auto;
+
+}
 .account table{
 	width: 450px;
 	position: absolute;
@@ -226,11 +230,10 @@ body{
 	width: 130px;
 }
 .button_account{
-	width: 250px;
+	width: 330px;
 	height: 40px;
 	margin: auto;
 	margin-top:50px;
-	padding-right: 70px;
 }
 .button_account a{
 	padding: 5px;
@@ -264,7 +267,7 @@ body{
 
 }
 /*CSS cap_nhat.php*/
-.account input{
+.account input, .changePass input{
 	width: 250px;
 	height: 25px;
 }

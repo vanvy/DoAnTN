@@ -4,12 +4,12 @@
 	if(isset($_POST['btnsubmit'])){
 		$email 	= $_POST['email'];
 		$pwd 	= $_POST['pwd'];
-
 		$salt = "@VietName#!123";
 		$mahoa = crypt($pwd,$salt);
 
 		$result = user::checkUserLogin($email, $mahoa);
 		$rows 	= mysqli_fetch_array($result, MYSQLI_ASSOC);
+
 		$num 	= mysqli_num_rows($result);
 		if($num>0){
 			$_SESSION['id_user']	=	$rows['id_user'];
@@ -17,14 +17,16 @@
 			$_SESSION['email'] 		=	$email;
 			$_SESSION['pwd']		=	$rows['pass'];
 			$_SESSION['level'] 		=	$rows['phanquyen'];
+      $_SESSION['avatar'] = $rows['hinh_dh'];
 			$un = $rows['hoten'];
 			if($rows['phanquyen']=='Admin'){
 				$msg = "Đăng nhập thành công!";
 				header("Location: ../admin/index.php");
 			}
 			else{
-                echo "Dang nhap khong thanh cong!";
-				// header("Location: index.php");
+				//header("Location: index.php");
+        echo $_SESSION['user-name'];
+
 			}
 
 		}

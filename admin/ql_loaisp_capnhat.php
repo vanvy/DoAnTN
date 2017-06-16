@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "../models/connect.php";
 $id_loaisp = $_REQUEST["id_loaisp"];
 if(isset($_POST["save"])){
@@ -13,7 +14,13 @@ if(isset($_POST["save"])){
 		move_uploaded_file($_FILES["images"]["tmp_name"], $uploaddir.$uploadfile);
 		$hinh = "../images/uploaded/".$date."_".basename($hinh);
 	}
-	$query="UPDATE `loaisp` SET `ten_loaisp`='$ten_loaisp',`mota`='$mota',`trangthai`='$trang_thai', `hinh_anh`='$hinh' WHERE id_loaisp='$id_loaisp'";
+	if($hinh != "") {
+		$query="UPDATE `loaisp` SET `ten_loaisp`='$ten_loaisp',`mota`='$mota',`trangthai`='$trang_thai', `hinh_anh`='$hinh' WHERE id_loaisp='$id_loaisp'";
+	} else {
+		$query="UPDATE `loaisp` SET `ten_loaisp`='$ten_loaisp',`mota`='$mota',`trangthai`='$trang_thai'
+						WHERE id_loaisp='$id_loaisp'";
+	}
+	echo $query;
 	$result=mysqli_query($con,$query) or die ("LOI CAP NHAT: ".mysqli_error($con));
 	if($result){
 		header("Location: ql_loaisp.php");

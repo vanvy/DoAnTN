@@ -1,4 +1,5 @@
 <?php
+  session_start();
   include_once "../models/connect.php";
   $id_BV = $_REQUEST['id_baiviet'];
 ?>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "../models/connect.php";
 $id_dsp = $_REQUEST["id_dsp"];
 if(isset($_POST["save"])){

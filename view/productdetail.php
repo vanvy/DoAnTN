@@ -1,4 +1,5 @@
 <?php
+  session_start();
   include_once "../models/connect.php";
   $id_SP=$_REQUEST['id_sp'];
 ?>

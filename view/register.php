@@ -32,7 +32,7 @@ if(isset($_POST["btnsubmit"])){
 		      VALUES ('$hoten','$ngay','$thang','$nam','$diachi','$sdt','$email','$mahoa','$hinh','$phanquyen')";
 		$result = mysqli_query($con,$query) or die("LOI THEM MOI: ".mysqli_error($con));
 		if($result){
-			$msg = "Đăng ký thành công!";
+			header("Location: login.php");
 		}
 	}
 }

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "../models/connect.php";
 	$id_sp=$_REQUEST['id_sp'];
 if(isset($_POST["submit"])){
@@ -28,10 +29,18 @@ if(isset($_POST["submit"])){
 		$check = false;
 	}
 	if($check){
-		$query = "UPDATE `sanpham` SET `id_dsp`='$id_dsp',`id_th`='$id_th',`id_loaisp`='$id_loaisp',`ma_sp`='$ma_sp',
+		if($hinh != "") {
+			$query = "UPDATE `sanpham` SET `id_dsp`='$id_dsp',`id_th`='$id_th',`id_loaisp`='$id_loaisp',`ma_sp`='$ma_sp',
 				`ten_sp`='$ten_sp',`gia_sp`='$dgia',`soluong`='$soluong',`dung_luong`='$dung_luong',
 				`xuat_xu`='$xuat_xu',`mota_chitiet`='$mota_chitiet',`hinh_anh`='$hinh',
 				`trangthai`='$trangthai', `sale`='$sale' WHERE id_sp='$id_sp'";
+		} else {
+			$query = "UPDATE `sanpham` SET `id_dsp`='$id_dsp',`id_th`='$id_th',`id_loaisp`='$id_loaisp',`ma_sp`='$ma_sp',
+				`ten_sp`='$ten_sp',`gia_sp`='$dgia',`soluong`='$soluong',`dung_luong`='$dung_luong',
+				`xuat_xu`='$xuat_xu',`mota_chitiet`='$mota_chitiet',
+				`trangthai`='$trangthai', `sale`='$sale' WHERE id_sp='$id_sp'";
+		}
+		
 		$result = mysqli_query($con,$query) or die ("LOI TRUY VAN: ".mysqli_error($con));
 		if($result){
 			header("Location: ql_sanpham.php");
@@ -68,7 +77,7 @@ if(isset($_POST["submit"])){
 				<table cellpadding="12">
           <tr>
             <td class="title_thuonghieu"><span id="sale">Nhập % sale: </span></td>
-            <td><input type="text" name="sale" value="<?php echo $rows['sale']; ?>" />
+            <td><input type="number" name="sale" min="0" max="100" value="<?php echo $rows['sale']; ?>" />
           </tr>
           <tr>
 						<td class="title_thuonghieu">Dòng sản phẩm:</td>

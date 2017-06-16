@@ -33,16 +33,8 @@
 				<tr>
 					<td class="title_thuonghieu">Tên khách hàng:</td>
 					<td><input type="text" name="tenkh"></td>
-					<td class="title_thuonghieu">Giới tính:</td>
-					<td></td>
-					<td class="title_thuonghieu">Ngày sinh:</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td class="title_thuonghieu">Địa chỉ:</td>
+										<td class="title_thuonghieu">Địa chỉ:</td>
 					<td><input type="text" name="diachi"></td>
-					<td class="title_thuonghieu">Email:</td>
-					<td><input type="text" name="email"></td>
 					<td class="title_thuonghieu">Số điện thoại:</td>
 					<td><input type="text" name="sdt"></td>
 				</tr>

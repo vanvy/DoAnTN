@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "../models/connect.php";
 $id_th = $_REQUEST["id_th"];
 if(isset($_POST["save"])){

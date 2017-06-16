@@ -1,5 +1,5 @@
 <?php
-	include_once "../models/connect.php";
+	 require_once "../view/check.php";
 ?>
 <!doctype html>
 <html>

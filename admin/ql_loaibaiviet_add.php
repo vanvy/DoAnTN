@@ -24,7 +24,7 @@ if(isset($_POST["submit"])){
 <head>
 	<title>Thêm mới loại bài viết</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="../style/main_admin1.css">
+	<link rel="stylesheet" href="../style/main_admin.css">
 	<link rel="shortcut icon" type="image/png" href="../images/shape-1.png">
 </head>
 <body>

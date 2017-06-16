@@ -33,16 +33,16 @@
         <?php
           $query1="SELECT * FROM sanpham WHERE id_loaisp='$idLoaisp'";
           $result1=mysqli_query($con, $query1) or die ("LOI TRUY VAN: ".mysqli_error($con));
-          while($rows1=mysqli_fetch_array($result1,MYSQLI_ASSOC)){
+          while($rows=mysqli_fetch_array($result1,MYSQLI_ASSOC)){
             ?>
             <div class="itemProduct catagory">
-              <a href="productdetail.php?id_sp=<?php echo $rows1['id_sp']; ?>"><img src="<?php echo $rows1['hinh_anh']; ?>"/></a>
+              <a href="productdetail.php?id_sp=<?php echo $rows['id_sp']; ?>"><img src="<?php echo $rows['hinh_anh']; ?>"/></a>
               <div class="informationProduct">
                 <ul>
-                  <li><?php echo $rows1['ten_sp']; ?></li>
-                  <li><?php echo number_format($rows1['gia_sp']); ?></li>
+                  <li><?php echo $rows['ten_sp']; ?></li>
+                  <li><?php echo number_format($rows['gia_sp']); ?></li>
                   <li>
-                    <a href="#" title="Thêm vào giỏ hàng">
+                    <a href="add-cart.php?id_sp=<?php echo $rows['id_sp']; ?>" title="Thêm vào giỏ hàng">
                       <img src="../images/shopping-cart.png" />
                     </a>
                   </li>

@@ -50,7 +50,7 @@
 										<img src="../images/cogwheel-1.png"></a>
 									</td>
 									<td class="list_img">
-										<a onclick="return window.confirm(\'Bạn muốn xóa mục này?\')" href="ql_user_del.php?id_user='.$rows['id_user'].'">
+										<a onclick="return window.confirm(\'Bạn muốn xóa mục này?\')" href="ql_users_del.php?id_user='.$rows['id_user'].'">
 										<img src="../images/delete-button.png"></a>
 									</td>
 								 </tr>';

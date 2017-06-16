@@ -1,5 +1,5 @@
 <?php
-	include_once "../models/connect.php";
+	 require_once "../view/check.php";
 ?>
 <!doctype html>
 <html>
@@ -31,6 +31,7 @@
 					<td class="name_sp">Tên sản phẩm</td>
 					<td>Số lượng</td>
 					<td>Đơn giá</td>
+					<td>Sale (%)</td>
 					<td>Trạng thái</td>
 					<td colspan="4">Thao tác</td>
 				</tr>
@@ -50,6 +51,7 @@
 								<td>'.$row["ten_sp"].'</td>
 								<td class="number">'.$row["soluong"].'</td>
 								<td class="number">'.number_format($row["gia_sp"]).'</td>
+								<td class="number">'.number_format($row["sale"]).'</td>
 								<td class="trang_thai">'.$row["trangthai"].'</td>
 								<td class="list_img">
 									<a href="ql_sanpham_sale.php?id_sp='.$row['id_sp'].'">

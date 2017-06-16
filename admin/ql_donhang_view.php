@@ -1,5 +1,21 @@
 <?php
 	require_once "../view/check.php";
+  // lay id_kh, id_hd
+  $idHd = $_REQUEST['id_hd'];
+  $idKh = $_REQUEST['id_kh'];
+  $query = "SELECT khachhang.id_kh as id_kh,
+			       khachhang.ten_kh as ten_kh,
+			       khachhang.sdt as sdt,
+			       khachhang.diachi as diachi,
+			       hoadon.ngay_lap as ngay,
+			       hoadon.thang_lap as thang,
+			       hoadon.nam_lap as nam
+			FROM khachhang, hoadon
+			WHERE khachhang.id_kh = hoadon.id_kh
+			AND hoadon.id_hd=".$idHd;
+;
+  $result = mysqli_query($con, $query) or die ("ERROR SELECT KHACH HANG: ".mysqli_error($con));
+  $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 ?>
 <!doctype html>
 <html>
@@ -24,27 +40,21 @@
 			<table>
 				<tr>
 					<td class="title_thuonghieu">Mã đơn hàng:</td>
-					<td>01</td>
+					<td><?php echo $idHd; ?></td>
 					<td class="title_thuonghieu">Mã khách hàng:</td>
-					<td>10</td>
+					<td><?php echo $row['id_kh']; ?></td>
 					<td class="title_thuonghieu">Ngày mua:</td>
-					<td>30/11/2016</td>
+					<td>
+						<?php echo $row['ngay']."/".$row['thang']."/".$row['nam']; ?>
+					</td>
 				</tr>
 				<tr>
 					<td class="title_thuonghieu">Tên khách hàng:</td>
-					<td>Nguyễn Văn A</td>
-					<td class="title_thuonghieu">Giới tính:</td>
-					<td>Nam</td>
-					<td class="title_thuonghieu">Ngày sinh:</td>
-					<td>10/05/1990</td>
-				</tr>
-				<tr>
+					<td><?php echo $row['ten_kh']; ?></td>
 					<td class="title_thuonghieu">Địa chỉ:</td>
-					<td>123 Nguyễn Văn Linh</td>
-					<td class="title_thuonghieu">Email:</td>
-					<td>VanA @gmail.com</td>
+					<td><?php echo $row['diachi']; ?></td>
 					<td class="title_thuonghieu">Số điện thoại:</td>
-					<td>0123987567</td>
+					<td><?php echo $row['sdt']; ?></td>
 				</tr>
 			</table>
 		</form>
@@ -55,30 +65,42 @@
 				<tr class="title_thuonghieu">
 					<td>STT</td>
 					<td>Tên sản phẩm</td>
-					<td>ĐVT</td>
 					<td>Số lượng</td>
 					<td>Đơn giá</td>
+					<td>Sale</td>
 					<td>Thành tiền</td>
 				</tr>
+				<?php
+					$query1 = "SELECT chitiethd.soluong as soluong,
+								       chitiethd.gia as gia,
+								       chitiethd.sale as sale,
+								       chitiethd.thanhtien as thanhtien,
+								       sanpham.id_sp as id_sp,
+								       sanpham.ten_sp as ten_sp
+								FROM chitiethd, sanpham
+								WHERE chitiethd.id_sp=sanpham.id_sp
+								AND chitiethd.id_hd=".$idHd;
+					$result1 = mysqli_query($con, $query1) or die ("ERROR SELECT CTHD BY IDHD:".mysqli_error($con));
+					$count = 0;
+					$total = 0;
+					while($rows = mysqli_fetch_array($result1, MYSQLI_ASSOC)) {
+						$count++;
+						$total += $rows['thanhtien'];
+						?>
+						<tr>
+							<td class="stt_list"><?php echo $count; ?></td>
+							<td><?php echo $rows['ten_sp']; ?></td>
+							<td class="number"><?php echo $rows['soluong']; ?></td>
+							<td class="number"><?php echo number_format($rows['gia']); ?></td>
+							<td class="number"><?php echo $rows['sale']; ?></td>
+							<td class="number"><?php echo number_format($rows['thanhtien']); ?></td>
+						</tr>
+						<?php
+					}
+					?>
 				<tr>
-					<td class="stt_list">1</td>
-					<td>Sửa rửa mặt E100</td>
-					<td>Bình</td>
-					<td class="number">2</td>
-					<td class="number">10,000</td>
-					<td class="number">20,000</td>
-				</tr>
-				<tr>
-					<td class="stt_list">2</td>
-					<td>Nước hoa hồng The Face</td>
-					<td>Chai</td>
-					<td class="number">1</td>
-					<td class="number">320,000</td>
-					<td class="number">320,000</td>
-				</tr>
-				<tr>
-					<td colspan="4" class="total_text">Tổng cộng</td>
-					<td colspan="2" class="total">340,000</td>
+					<td colspan="5" class="total_text">Tổng cộng</td>
+					<td colspan="3" class="total"><?php echo number_format($total); ?></td>
 				</tr>
 			</table>
 		</form>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "../models/connect.php";
 $id_loai = $_REQUEST["id_loai"];
 if(isset($_POST["save"])){

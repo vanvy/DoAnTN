@@ -53,8 +53,9 @@
           $found=false;
           if(isset($_SESSION['cart'])){
               foreach ($_SESSION['cart'] as $key => $value) {
-                  if(isset($key)){
+                  if(isset($key) && is_numeric($key)){
                       $found = true;
+                      break;
                   }
               }
           }
@@ -69,20 +70,25 @@
             <td>Tên sản phẩm</td>
             <td>Số lượng</td>
             <td>Đơn giá</td>
+            <td>Sale (%)</td>
             <td>Thành tiền</td>
             <td>Xóa</td>
           </tr>
 
               <?php
                 foreach ($_SESSION['cart'] as $key => $value) {
+                  if(is_numeric($key)) {
                     $sp[] = $key;
+                  }
                 }
                 $str = implode(",", $sp);
+
                 $query = "SELECT * FROM sanpham WHERE id_sp IN ($str)";
                 $result = mysqli_query($con, $query)
                         or die('ERROR SELECT SANPHAM IN 74/shoppingcart.php: '.mysqli_error($con));
                 $total = 0;
                 while($rows=mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                    $thanhtien = 0;
                     ?>
                     <tr>
                         <td>
@@ -94,9 +100,12 @@
                           name="qty[<?php echo $rows['id_sp'];?>]"  min=0 max=<?php echo $rows['soluong'];?>>
                         </td>
                         <td><?php echo number_format($rows['gia_sp']); ?></td>
+                        <td><?php echo $rows['sale'];?></td>
                         <td>
                             <?php
-                            echo number_format($_SESSION['cart'][$rows['id_sp']]*$rows['gia_sp']);
+                            $thanhtien = $_SESSION['cart'][$rows['id_sp']]*
+                                        ($rows['gia_sp'] - $rows['gia_sp']*$rows['sale']/100); 
+                            echo number_format($thanhtien);
                             ?>
                         </td>
                         <td>
@@ -106,12 +115,12 @@
                         </td>
                     </tr>
                     <?php
-                    $total += $_SESSION['cart'][$rows['id_sp']] * $rows['gia_sp'];
+                    $total += $thanhtien;
                 }
               ?>
           <tr>
-            <td colspan="3">Tổng cộng</td>
-            <td colspan="3">
+            <td colspan="4">Tổng cộng</td>
+            <td colspan="4">
                 <?php echo number_format($total)." vnd";?>
             </td>
           </tr>
@@ -128,7 +137,7 @@
       <?php
      }
      else{
-      echo '<h3>Bạn chưa có sản phẩm nào trong giỏ hàng!</h3>';
+      echo '<h4>Bạn chưa có sản phẩm nào trong giỏ hàng!</h4>';
      }
      ?>
     </div>

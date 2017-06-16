@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	require_once "../view/check.php";
 	$id_user=$_REQUEST["id_user"];
 	if(isset($_POST["save"])){
@@ -16,7 +17,12 @@
 				move_uploaded_file($_FILES["images"]["tmp_name"], $uploaddir.$uploadfile);
 				$hinh = "../images/uploaded/".$date."_".basename($hinh);
 			}
-		$query="UPDATE `user` SET `hoten`='$hoten',`ngay`='$ngay',`thang`='$thang',`nam`='$nam',`dia_chi`='$dia_chi',`email`='$email',`sdt`='$sdt',`hinh_dh`='$hinh' WHERE id_user='$id_user'";
+		if($hinh != "") {
+			$query="UPDATE `user` SET `hoten`='$hoten',`ngay`='$ngay',`thang`='$thang',`nam`='$nam',`dia_chi`='$dia_chi',`email`='$email',`sdt`='$sdt',`hinh_dh`='$hinh' WHERE id_user='$id_user'";
+		} else {
+			$query="UPDATE `user` SET `hoten`='$hoten',`ngay`='$ngay',`thang`='$thang',`nam`='$nam',`dia_chi`='$dia_chi',`email`='$email',`sdt`='$sdt' WHERE id_user='$id_user'";
+		}
+		
 		$result=mysqli_query($con,$query) or die("LOI CAP NHAT: ".mysqli_error($con));
 			if($result){
 				header('Location: ql_users.php');
@@ -47,8 +53,8 @@
 			$result1=mysqli_query($con, $query1) or die("LOI HIEN THI: ".mysqli_error($con));
 			$rows=mysqli_fetch_array($result1, MYSQLI_ASSOC);
 		?>
-		<div class="account">
-			<form <?php echo 'action="ql_users_capnhat.php?id_user='.$rows['id_user'].'"'?> method="post" enctype="multipart/form-data">
+		<div>
+			<form <?php echo 'action="ql_users_capnhat.php?id_user='.$rows['id_user'].'"'?> method="post" enctype="multipart/form-data" class="changePass">
 				<table cellspacing="12">
 					<tr>
 						<td class="title_account">Họ và tên:</td>

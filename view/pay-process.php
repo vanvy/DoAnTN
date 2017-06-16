@@ -4,6 +4,7 @@
         header('Location: index.php');
     }
     require_once "../models/user.php";
+    $id_user = 0;
     // Kiem tra neu nguoi mau da la thanh vien thi lay thong tin tu database ra
     if(isset($_SESSION['email']) && $_SESSION['pwd']) {
         $email = $_SESSION['email'];
@@ -18,9 +19,7 @@
             $id_user = $row['id_user'];
         }
     }
-    else {
-        $id_user = 0;
-    }
+
     $hoten = $_POST['name'];
     $dia_chi = $_POST['address'];
     $sdt = $_POST['phone'];
@@ -36,9 +35,14 @@
     $result = mysqli_query($con, $query) or die ('ERROR SELECT SP IN 35/pay-cart.php');
     while($rows=mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $SLMUA[] = $_SESSION['cart'][$rows['id_sp']];
-		$SLNEW[] = $rows['soluong'] - $_SESSION['cart'][$rows['id_sp']];
-		$GIASP[] = $rows['gia_sp'];
-		$total +=$rows['gia_sp']*$_SESSION['cart'][$rows['id_sp']];
+    	$SLNEW[] = $rows['soluong'] - $_SESSION['cart'][$rows['id_sp']];
+    	$GIASP[] = $rows['gia_sp'];
+        $SALE[] = $rows['sale'];
+        $TT[] = $_SESSION['cart'][$rows['id_sp']]*
+                  ($rows['gia_sp'] - $rows['gia_sp']*$rows['sale']/100);
+
+    	$total += $_SESSION['cart'][$rows['id_sp']]*
+                  ($rows['gia_sp'] - $rows['gia_sp']*$rows['sale']/100);
     }
     // Cap nhat khach hang
     $query1 = "INSERT INTO `khachhang`(`ten_kh`, `sdt`, `diachi`)
@@ -58,9 +62,12 @@
                 $sl_mua = $SLMUA[$i];
                 $sl_new = $SLNEW[$i];
                 $gia_sp = $GIASP[$i];
+                $sale = $SALE[$i];
+                $thanhtien = $TT[$i];
+
                 echo $id_sp." - ".$sl_mua." - ".$sl_new." - ".$gia_sp."<br/>";
-                $query3  = "INSERT INTO `chitiethd`(`id_hd`, `id_sp`, `soluong`, `gia`)
-                            VALUES ('$id_hd', '$idsp', '$sl_mua', '$gia_sp')";
+                $query3  = "INSERT INTO `chitiethd`(`id_hd`, `id_sp`, `soluong`, `gia`, `sale`, `thanhtien`)
+                            VALUES ('$id_hd', '$idsp', '$sl_mua', '$gia_sp', '$sale', '$thanhtien')";
                 $result3 = mysqli_query($con, $query3) or die('ERROR INSERT CTHD: '.mysqli_error($con));
                 // Cap nhat lai so luong san pham
                 $query4 = "UPDATE sanpham SET soluong=$sl_new WHERE id_sp='$idsp'";

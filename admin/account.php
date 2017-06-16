@@ -57,8 +57,11 @@
 		<?php
 			echo '
 				<a href="ql_users_capnhat.php?id_user='.$rows['id_user'].' ">Sửa thông tin</a>
-				<a href="change_password.php?id_user='.$rows['id_user'].'">Đổi mật khẩu </a>
+				<a href="ql_users.php">Quay lại</a>
 			';
+			if($id_user == $_SESSION['id_user']) {
+				echo '<a href="change_password.php?id_user='.$rows['id_user'].'">Đổi mật khẩu </a>';
+			}
 		?>
 		</div>
 	</div>

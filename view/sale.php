@@ -39,7 +39,7 @@
                   <li><?php echo $rows['ten_sp']; ?></li>
                   <li><span id="priceSale" class="clearfix"></span><?php echo number_format($rows['gia_sp']*(100-$rows['sale'])/100);  ?></li>
                   <li>
-                    <a href="shoppingcart.php" title="Thêm vào giỏ hàng">
+                    <a href="add-cart.php?id_sp=<?php echo $rows['id_sp']; ?>" title="Thêm vào giỏ hàng">
                       <img src="../images/shopping-cart.png" />
                     </a>
                   </li>
